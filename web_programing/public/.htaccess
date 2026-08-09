@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Real files (css, js, uploaded images) are served directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # Real folders too
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Everything else becomes index.php?url=controller/action/params
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
