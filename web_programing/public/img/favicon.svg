@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34">
+    <!-- StudyGrove favicon: the same sprout mark as the site header. -->
+    <circle cx="17" cy="17" r="16" fill="#1E5B45"/>
+    <path d="M17 25.5V15.5" stroke="#F6F3EA" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M17 16.6c.2-4.8-2.9-7.8-7.4-7.9.1 4.8 3 7.7 7.4 7.9Z" fill="#8FC7A6"/>
+    <path d="M17 16.6c-.2-4.8 2.9-7.8 7.4-7.9-.1 4.8-3 7.7-7.4 7.9Z" fill="#C9E3CE"/>
+</svg>

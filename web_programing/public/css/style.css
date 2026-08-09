@@ -1,0 +1,453 @@
+/* ---------- 1. Brand palette + Bootstrap global variables ---------- */
+
+:root {
+  /* StudyGrove palette (unchanged from the original design) */
+  --grove-cream: #f6f3ea; /* page background */
+  --grove-panel: #fdfcf8; /* cards, inputs, navbar */
+  --grove-ink: #24312a; /* main text */
+  --grove-muted: #5f6d60; /* secondary text */
+  --grove-line: #e3dece; /* thin borders */
+  --grove-border: #cfc8b4; /* input borders */
+  --grove-green: #1e5b45; /* buttons and links */
+  --grove-green-d: #14402f; /* darker green */
+  --grove-green-l: #dfede1; /* pale green fill */
+  --grove-gold: #c9a227; /* focus outline */
+  --grove-danger: #a93f36; /* errors and delete */
+
+  /* Feed the palette into Bootstrap's own variables so every
+       component (cards, tables, alerts, badges...) follows it. */
+  --bs-body-bg: var(--grove-cream);
+  --bs-body-color: var(--grove-ink);
+  --bs-body-color-rgb: 36, 49, 42;
+  --bs-secondary-color: var(--grove-muted);
+  --bs-secondary-color-rgb: 95, 109, 96;
+  --bs-emphasis-color: var(--grove-green-d);
+  --bs-border-color: var(--grove-line);
+  --bs-border-radius: 0.75rem;
+  --bs-border-radius-sm: 0.5rem;
+  --bs-border-radius-lg: 1rem;
+  --bs-border-radius-xl: 1.25rem;
+  --bs-border-radius-xxl: 2rem;
+
+  --bs-primary: #1e5b45;
+  --bs-primary-rgb: 30, 91, 69;
+  --bs-danger: #a93f36;
+  --bs-danger-rgb: 169, 63, 54;
+
+  --bs-link-color: var(--grove-green);
+  --bs-link-color-rgb: 30, 91, 69;
+  --bs-link-hover-color: var(--grove-green-d);
+  --bs-link-hover-color-rgb: 20, 64, 47;
+
+  /* Focus ring in gold, for the accessibility requirement. */
+  --bs-focus-ring-color: rgba(201, 162, 39, 0.45);
+  --bs-focus-ring-width: 0.25rem;
+
+  /* Bootstrap's built-in validation colours, in our red. */
+  --bs-form-invalid-color: var(--grove-danger);
+  --bs-form-invalid-border-color: var(--grove-danger);
+
+  --bs-body-font-family:
+    "Nunito Sans", "Segoe UI", Arial, Helvetica, sans-serif;
+  --bs-body-font-size: 1rem;
+  --bs-body-line-height: 1.6;
+}
+
+/* ---------- 2. Typography ---------- */
+
+h1,
+h2,
+h3,
+h4,
+.navbar-brand,
+.footer-brand {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.85rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+
+/* Always show a visible outline for keyboard users (WCAG 2.4.7). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible,
+.page-link:focus-visible,
+.list-group-item-action:focus-visible {
+  outline: 3px solid var(--grove-gold);
+  outline-offset: 2px;
+}
+
+/* ---------- 3. Buttons ---------- */
+/* Bootstrap builds each button from --bs-btn-* variables, so a theme
+   only needs to change those values. */
+
+.btn-primary {
+  --bs-btn-bg: var(--grove-green);
+  --bs-btn-border-color: var(--grove-green);
+  --bs-btn-hover-bg: var(--grove-green-d);
+  --bs-btn-hover-border-color: var(--grove-green-d);
+  --bs-btn-active-bg: var(--grove-green-d);
+  --bs-btn-active-border-color: var(--grove-green-d);
+  --bs-btn-disabled-bg: var(--grove-green);
+  --bs-btn-disabled-border-color: var(--grove-green);
+}
+
+.btn-danger {
+  --bs-btn-bg: var(--grove-danger);
+  --bs-btn-border-color: var(--grove-danger);
+  --bs-btn-hover-bg: #8c332b;
+  --bs-btn-hover-border-color: #8c332b;
+  --bs-btn-active-bg: #8c332b;
+  --bs-btn-active-border-color: #8c332b;
+}
+
+/* "Ghost" button of the original design = an outline button on paper. */
+.btn-outline-secondary {
+  --bs-btn-color: var(--grove-ink);
+  --bs-btn-bg: var(--grove-panel);
+  --bs-btn-border-color: var(--grove-border);
+  --bs-btn-hover-color: var(--grove-green-d);
+  --bs-btn-hover-bg: var(--grove-green-l);
+  --bs-btn-hover-border-color: var(--grove-border);
+  --bs-btn-active-color: var(--grove-green-d);
+  --bs-btn-active-bg: var(--grove-green-l);
+  --bs-btn-active-border-color: var(--grove-border);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--grove-green-d);
+  --bs-btn-border-color: var(--grove-border);
+  --bs-btn-bg: var(--grove-panel);
+  --bs-btn-hover-bg: var(--grove-green);
+  --bs-btn-hover-border-color: var(--grove-green);
+  --bs-btn-active-bg: var(--grove-green);
+  --bs-btn-active-border-color: var(--grove-green);
+}
+
+.btn {
+  font-weight: 700;
+}
+
+/* ---------- 4. Surfaces: cards, tables, list groups ---------- */
+
+.card {
+  --bs-card-bg: var(--grove-panel);
+  --bs-card-border-color: var(--grove-line);
+  --bs-card-cap-bg: #f1ecdd;
+}
+
+.table {
+  --bs-table-bg: var(--grove-panel);
+  --bs-table-color: var(--grove-ink);
+  --bs-table-border-color: var(--grove-line);
+  --bs-table-hover-bg: #f1ecdd;
+  --bs-table-hover-color: var(--grove-ink);
+  margin-bottom: 0;
+}
+
+.table > thead th {
+  background: #f1ecdd;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* A table sits flush against the card edge, so the wrapper has to clip
+   the square corners of the header row for the card to stay rounded. */
+.card > .table-responsive {
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.list-group {
+  --bs-list-group-bg: var(--grove-panel);
+  --bs-list-group-border-color: var(--grove-line);
+  --bs-list-group-color: var(--grove-ink);
+  --bs-list-group-action-hover-bg: #efead9;
+  --bs-list-group-action-hover-color: var(--grove-green-d);
+  --bs-list-group-active-bg: var(--grove-green);
+  --bs-list-group-active-border-color: var(--grove-green);
+  --bs-list-group-active-color: #fff;
+}
+
+/* The module counters turn white-on-green when their row is selected. */
+.list-group-item.active .badge {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #fff !important;
+}
+
+.alert {
+  --bs-alert-border-color: var(--grove-line);
+}
+
+.pagination {
+  --bs-pagination-bg: var(--grove-panel);
+  --bs-pagination-color: var(--grove-green);
+  --bs-pagination-border-color: var(--grove-border);
+  --bs-pagination-hover-bg: var(--grove-green-l);
+  --bs-pagination-hover-color: var(--grove-green-d);
+  --bs-pagination-active-bg: var(--grove-green);
+  --bs-pagination-active-border-color: var(--grove-green);
+  --bs-pagination-disabled-bg: var(--grove-panel);
+}
+
+/* ---------- 5. Forms ---------- */
+
+.form-control,
+.form-select {
+  background-color: var(--grove-panel);
+  border-color: var(--grove-border);
+  color: var(--grove-ink);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--grove-panel);
+  border-color: var(--grove-green);
+  box-shadow: 0 0 0 0.25rem rgba(201, 162, 39, 0.35);
+}
+
+.form-label {
+  font-weight: 700;
+}
+
+.form-check-input:checked {
+  background-color: var(--grove-green);
+  border-color: var(--grove-green);
+}
+
+/* The red star beside a required field. */
+.req {
+  color: var(--grove-danger);
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--grove-muted);
+  font-size: 0.875rem;
+}
+
+/* Preview of a chosen / already uploaded screenshot. */
+.current-image {
+  max-width: 250px;
+  background: var(--grove-panel);
+}
+
+#q {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+/* ---------- 6. Header, navbar and footer ---------- */
+
+.site-header {
+  background: var(--grove-panel);
+  border-bottom: 1px solid var(--grove-line);
+}
+
+.navbar {
+  --bs-navbar-padding-y: 0.875rem;
+}
+
+.navbar .nav-link {
+  --bs-nav-link-color: var(--grove-ink);
+  --bs-nav-link-hover-color: var(--grove-green-d);
+  border-radius: 0.625rem;
+  padding-inline: 0.75rem;
+}
+
+.navbar .nav-link:hover {
+  background: var(--grove-green-l);
+}
+
+.navbar .nav-link.active {
+  background: var(--grove-green-l);
+  color: var(--grove-green-d);
+  font-weight: 700;
+}
+
+/* Admin-only links sit slightly quieter than the public ones. */
+.navbar .nav-admin {
+  --bs-nav-link-color: var(--grove-muted);
+  font-size: 0.9375rem;
+}
+
+.navbar-brand {
+  color: var(--grove-green-d);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: var(--grove-green-d);
+}
+
+/* An <svg> with no width/height would stretch to fill its container. */
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  flex: none;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--grove-line);
+  margin: 0 0.25rem;
+}
+
+/* Round initials badge: AD for an administrator, ME for a member. */
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.avatar-admin {
+  background: var(--grove-green);
+  color: #fff;
+}
+.avatar-member {
+  background: var(--grove-green-l);
+  color: var(--grove-green-d);
+}
+
+.site-footer {
+  background: var(--grove-green-d);
+  color: #d8e6db;
+}
+
+.site-footer .footer-brand {
+  color: #fff;
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
+/* "Skip to content" link: hidden until a keyboard user tabs to it. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -60px;
+  z-index: 1100;
+  background: var(--grove-green);
+  color: #fff;
+  padding: 0.625rem 1rem;
+  border-radius: 0.625rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+  color: #fff;
+}
+
+/* ---------- 7. Small pieces used across the pages ---------- */
+
+/* The module code shown as a pill, e.g. COMP1841. */
+.module-chip {
+  display: inline-block;
+  padding: 0.125rem 0.5625rem;
+  border: 1px solid var(--grove-border);
+  border-radius: 20px;
+  background: var(--grove-panel);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--grove-green-d);
+}
+
+a.module-chip:hover {
+  background: var(--grove-green-l);
+  color: var(--grove-green-d);
+}
+
+.side-title {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--grove-muted);
+}
+
+.chip-admin {
+  background: #ede0f0;
+  color: #6b3c78;
+}
+.chip-member {
+  background: #eae5d4;
+  color: var(--grove-muted);
+}
+
+.count {
+  background: #eae5d4;
+  color: var(--grove-muted);
+}
+
+/* Long words (URLs, error text) wrap instead of overflowing. */
+.q-title,
+.q-excerpt,
+.q-body {
+  overflow-wrap: break-word;
+}
+
+.q-title a {
+  color: var(--grove-ink);
+  text-decoration: none;
+}
+.q-title a:hover {
+  color: var(--grove-green);
+  text-decoration: underline;
+}
+
+.q-body {
+  white-space: normal;
+}
+
+/* Keeps the reading line comfortable on very wide screens. */
+.reading-width {
+  max-width: 760px;
+}
+.form-width {
+  max-width: 720px;
+}
+.form-narrow {
+  max-width: 460px;
+}
+
+/* ---------- 8. Home page: gap between the sidebar and the list ---------- */
+/* Bootstrap's gutter utilities stop at 3rem (g-5), so the wider gap this
+   layout wants is set by re-declaring Bootstrap's own --bs-gutter-x.
+   Only the HORIZONTAL gutter is touched on purpose: setting --bs-gutter-y
+   would make .row apply "margin-top: calc(-1 * var(--bs-gutter-y))", which
+   drags the whole block up underneath the navigation bar. */
+
+.board-row {
+  --bs-gutter-x: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .board-row {
+    --bs-gutter-x: 3.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .board-row {
+    --bs-gutter-x: 4.5rem;
+  }
+}
